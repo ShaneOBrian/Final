@@ -1,0 +1,266 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Final Project},
+  pdfauthor={Matilde Saucedo \& Shane O'Brian},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Final Project}
+\author{Matilde Saucedo \& Shane O'Brian}
+\date{2024-03-06}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/stream\_data.R"}\NormalTok{)}
+\FunctionTok{source}\NormalTok{(}\StringTok{"../R/discharge\_vol.R"}\NormalTok{)}
+\NormalTok{discharge\_pmap }\OtherTok{\textless{}{-}} \FunctionTok{pmap}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{depth =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{depth, }\AttributeTok{velocity =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{velocity), discharge\_vol)}
+\NormalTok{discharge\_pmap\_df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{measure =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{measure, }\AttributeTok{discharge =} \FunctionTok{unlist}\NormalTok{(discharge\_pmap), }\AttributeTok{depth =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{depth, }\AttributeTok{velocity =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{velocity, }\AttributeTok{velocity\_type=}\NormalTok{stream\_features}\SpecialCharTok{$}\NormalTok{velocity\_type, }\AttributeTok{width=}\NormalTok{stream\_features}\SpecialCharTok{$}\NormalTok{width)}
+
+\CommentTok{\#quick visualization}
+\NormalTok{discharge\_pmap\_plot }\OtherTok{=} \FunctionTok{ggplot}\NormalTok{(discharge\_pmap\_df, }\FunctionTok{aes}\NormalTok{(velocity\_type,discharge, }\AttributeTok{fill=}\NormalTok{velocity\_type))}\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{( }\AttributeTok{x=}\StringTok{"Streamflow"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Discharge in cubic feet"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Discharge Volumes for Different Stream Levels"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position=}\StringTok{"none"}\NormalTok{)}
+\NormalTok{discharge\_pmap\_plot}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Project_files/figure-latex/for pmap-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{discharge\_loop\_df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{matrix}\NormalTok{(}\AttributeTok{nrow =} \FunctionTok{nrow}\NormalTok{(stream\_features), }\AttributeTok{ncol =} \DecValTok{1}\NormalTok{))}
+
+\NormalTok{discharge\_loop\_output }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{discharge =} \FunctionTok{numeric}\NormalTok{(),}
+                              \AttributeTok{velocity =} \FunctionTok{numeric}\NormalTok{(),}
+                              \AttributeTok{velocity\_type =} \FunctionTok{character}\NormalTok{(),}
+                              \AttributeTok{depth =} \FunctionTok{numeric}\NormalTok{(),}
+                              \AttributeTok{width =} \FunctionTok{numeric}\NormalTok{())}
+
+\CommentTok{\# Run a loop to calculate discharge for each row in stream\_features}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(stream\_features)) \{}
+  \CommentTok{\# Calculate discharge for the current row}
+\NormalTok{  discharge\_loop }\OtherTok{\textless{}{-}} \FunctionTok{discharge\_vol}\NormalTok{(}\AttributeTok{depth =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{depth[i], }
+                              \AttributeTok{velocity =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{velocity[i])}
+  
+  \CommentTok{\# Append discharge, velocity, depth, and width to associated\_data}
+\NormalTok{  discharge\_loop\_output }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(discharge\_loop\_output, }
+                           \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{discharge =}\NormalTok{ discharge\_loop, }
+                                      \AttributeTok{velocity =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{velocity[i],}
+                                      \AttributeTok{velocity\_type =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{velocity\_type[i],}
+                                      \AttributeTok{depth =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{depth[i], }
+                                      \AttributeTok{width =}\NormalTok{ stream\_features}\SpecialCharTok{$}\NormalTok{width[i]}
+\NormalTok{                                      ))}
+\NormalTok{\}}
+
+\CommentTok{\#quick visualization}
+\NormalTok{discharge\_loop\_plot }\OtherTok{=} \FunctionTok{ggplot}\NormalTok{(discharge\_loop\_output, }\FunctionTok{aes}\NormalTok{(velocity\_type,discharge, }\AttributeTok{fill=}\NormalTok{velocity\_type))}\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{( }\AttributeTok{x=}\StringTok{"Streamflow"}\NormalTok{, }\AttributeTok{y=}\StringTok{"Discharge in cubic feet"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Discharge Volumes for Different Stream Levels"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position=}\StringTok{"none"}\NormalTok{)}
+\NormalTok{discharge\_loop\_plot}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Final-Project_files/figure-latex/for looping-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Using a negative value for velocity}
+\FunctionTok{library}\NormalTok{(testthat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'testthat'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:devtools':
+## 
+##     test_file
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     matches
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:readr':
+## 
+##     edition_get, local_edition
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:tidyr':
+## 
+##     matches
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:purrr':
+## 
+##     is_null
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"../Test/test\_stream\_data.R"}\NormalTok{)}
+
+\NormalTok{test\_results }\OtherTok{\textless{}{-}} \FunctionTok{test\_that}\NormalTok{(}\StringTok{"Negative input values return an error"}\NormalTok{, \{}
+  \FunctionTok{expect\_error}\NormalTok{(}\FunctionTok{discharge\_vol}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{), }\StringTok{"Depth cannot be negative"}\NormalTok{)}
+  \FunctionTok{expect\_error}\NormalTok{(}\FunctionTok{discharge\_vol}\NormalTok{(}\DecValTok{4}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{6}\NormalTok{), }\StringTok{"Velocity cannot be negative"}\NormalTok{)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Test passed
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test\_results}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devtools}\SpecialCharTok{::}\FunctionTok{document}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## i Updating Final Project documentation
+## i Loading Final Project
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: -- Conflicts ---------------------------------------- Final Project conflicts
+## --
+## x `discharge_vol` masks `Final Project::discharge_vol()`.
+## i Did you accidentally source a file rather than using `load_all()`?
+##   Run `rm(list = c("discharge_vol"))` to remove the conflicts.
+\end{verbatim}
+
+\begin{verbatim}
+## x stream_data.R:8: Block must have a @name.
+## i Either document an existing object or manually specify with @name
+## x Skipping 'NAMESPACE'
+## i It already exists and was not generated by roxygen2.
+\end{verbatim}
+
+\end{document}

@@ -1,0 +1,92 @@
+---
+title: "Final Project"
+author: "Matilde Saucedo & Shane O'Brian"
+date: "2024-03-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+source("../R/discharge_vol.R")
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(purrr)
+library(tidyverse)
+library(dplyr)
+library(here)
+library(roxygen2)
+library(devtools)
+```
+
+
+```{r for pmap}
+source("../R/stream_data.R")
+source("../R/discharge_vol.R")
+discharge_pmap <- pmap(list(depth = stream_features$depth, velocity = stream_features$velocity), discharge_vol)
+discharge_pmap_df <- data.frame(measure = stream_features$measure, discharge = unlist(discharge_pmap), depth = stream_features$depth, velocity = stream_features$velocity, velocity_type=stream_features$velocity_type, width=stream_features$width)
+
+#quick visualization
+discharge_pmap_plot = ggplot(discharge_pmap_df, aes(velocity_type,discharge, fill=velocity_type))+
+  geom_boxplot()+
+  labs( x="Streamflow", y="Discharge in cubic feet")+
+  ggtitle("Discharge Volumes for Different Stream Levels") +
+  theme(legend.position="none")
+discharge_pmap_plot
+
+
+```
+
+
+```{r for looping}
+
+discharge_loop_df <- data.frame(matrix(nrow = nrow(stream_features), ncol = 1))
+
+discharge_loop_output <- data.frame(discharge = numeric(),
+                              velocity = numeric(),
+                              velocity_type = character(),
+                              depth = numeric(),
+                              width = numeric())
+
+# Run a loop to calculate discharge for each row in stream_features
+for(i in 1:nrow(stream_features)) {
+  # Calculate discharge for the current row
+  discharge_loop <- discharge_vol(depth = stream_features$depth[i], 
+                              velocity = stream_features$velocity[i])
+  
+  # Append discharge, velocity, depth, and width to associated_data
+  discharge_loop_output <- rbind(discharge_loop_output, 
+                           data.frame(discharge = discharge_loop, 
+                                      velocity = stream_features$velocity[i],
+                                      velocity_type = stream_features$velocity_type[i],
+                                      depth = stream_features$depth[i], 
+                                      width = stream_features$width[i]
+                                      ))
+}
+
+#quick visualization
+discharge_loop_plot = ggplot(discharge_loop_output, aes(velocity_type,discharge, fill=velocity_type))+
+  geom_boxplot()+
+  labs( x="Streamflow", y="Discharge in cubic feet")+
+  ggtitle("Discharge Volumes for Different Stream Levels") +
+  theme(legend.position="none")
+discharge_loop_plot
+
+```
+
+
+```{r testing for discharge_vol}
+#Using a negative value for velocity
+library(testthat)
+source("../Test/test_stream_data.R")
+
+test_results <- test_that("Negative input values return an error", {
+  expect_error(discharge_vol(-1, 3), "Depth cannot be negative")
+  expect_error(discharge_vol(4, -6), "Velocity cannot be negative")
+})
+
+test_results
+```
+```{r help pages}
+devtools::document()
+
+```
+
