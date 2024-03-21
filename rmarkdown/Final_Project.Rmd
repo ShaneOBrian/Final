@@ -1,5 +1,5 @@
 ---
-title: "Final Project"
+title: "Final_Project"
 author: "Matilde Saucedo & Shane O'Brian"
 date: "2024-03-06"
 output: html_document
@@ -76,7 +76,7 @@ discharge_loop_plot
 ```{r testing for discharge_vol}
 #Using a negative value for velocity
 library(testthat)
-source("../Test/test_stream_data.R")
+source("../tests/test_stream_data.R")
 
 test_results <- test_that("Negative input values return an error", {
   expect_error(discharge_vol(-1, 3), "Depth cannot be negative")
@@ -87,6 +87,5 @@ test_results
 ```
 ```{r help pages}
 devtools::document()
-
 ```
 

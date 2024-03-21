@@ -4,14 +4,14 @@
 \alias{discharge_vol}
 \title{This function determines the discharge volume along different parts of the stream}
 \usage{
-discharge_vol(depth, velocity)
+discharge_vol(depth, width = 2, velocity)
 }
 \arguments{
 \item{depth}{to bottom of the stream bed (feet)}
 
-\item{velocity}{rate of stream flow (feet per second)}
-
 \item{width}{distance between two points across the stream (feet), default = 2}
+
+\item{velocity}{rate of stream flow (feet per second)}
 }
 \value{
 discharge (cubic feet per second)

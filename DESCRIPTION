@@ -1,4 +1,4 @@
-Package: Final Project
+Package: StreamDischarge
 Type: Package
 Title: Calculates the discharge of a stream
 Version: 0.1.0
@@ -11,6 +11,8 @@ Description: This package provides a function for calculating stream discharge u
   research. The calculation is based on the principle that discharge can be computed by 
   multiplying the cross-sectional area of the stream (depth x width) by the average velocity 
   of water flow.
+Suggests: 
+  here
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
